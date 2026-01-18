@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Monitor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-emoji">💸</span>
+        <h1>Budget Monitor</h1>
+      </div>
+      <p class="tagline">Your wallet's guardian angel</p>
+    </header>
+
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-icon">🛒</div>
+        <div class="stat-info">
+          <span class="stat-value" id="attempts">0</span>
+          <span class="stat-label">Shopping Attempts</span>
+        </div>
+      </div>
+      
+      <div class="stat-card highlight">
+        <div class="stat-icon">💰</div>
+        <div class="stat-info">
+          <span class="stat-value" id="saved">$0</span>
+          <span class="stat-label">Money Saved*</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-section">
+      <div class="status-indicator active">
+        <span class="pulse"></span>
+        <span>Protection Active</span>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">🖼️</span>
+        <span>Product images → Shame images</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🛑</span>
+        <span>"Buy Now" → "You're Broke"</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">😤</span>
+        <span>Disappointment delivered</span>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p class="disclaimer">*Estimated based on average cart abandonment</p>
+      <p class="credit">Made with 💔 for your wallet</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

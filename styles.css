@@ -1,0 +1,271 @@
+/* Budget Monitor - Shopping Shame Styles */
+
+/* ===== SHAME BANNER ===== */
+#budget-monitor-banner {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2147483647 !important;
+  background: linear-gradient(135deg, #e94560 0%, #ff6b6b 50%, #e94560 100%) !important;
+  background-size: 200% 200% !important;
+  animation: budget-banner-gradient 3s ease infinite !important;
+  color: white !important;
+  padding: 12px 20px !important;
+  text-align: center !important;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+
+@keyframes budget-banner-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+#budget-monitor-banner .banner-icon {
+  font-size: 20px !important;
+  animation: budget-bounce 1s ease infinite !important;
+}
+
+@keyframes budget-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+#budget-monitor-banner .banner-text strong {
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Push page content down */
+body {
+  margin-top: 50px !important;
+}
+
+/* ===== SHAMED IMAGES ===== */
+.budget-monitor-shamed {
+  border: 4px dashed #e94560 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.5) !important;
+  animation: budget-shame-pulse 2s ease-in-out infinite !important;
+  object-fit: cover !important;
+}
+
+@keyframes budget-shame-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(233, 69, 96, 0.8);
+    transform: scale(1.02);
+  }
+}
+
+/* ===== BROKE BUTTON ===== */
+.budget-monitor-broke-button {
+  background: linear-gradient(135deg, #e94560, #ff6b6b) !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  padding: 15px 30px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  animation: budget-button-shake 0.5s ease-in-out infinite !important;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.budget-monitor-broke-button:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 25px rgba(233, 69, 96, 0.6) !important;
+  animation: none !important;
+}
+
+@keyframes budget-button-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px) rotate(-1deg); }
+  75% { transform: translateX(2px) rotate(1deg); }
+}
+
+/* ===== SHAME MODAL ===== */
+#budget-monitor-shame-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+#budget-monitor-shame-modal.shame-visible {
+  opacity: 1 !important;
+}
+
+#budget-monitor-shame-modal.shame-exit {
+  opacity: 0 !important;
+}
+
+#budget-monitor-shame-modal .shame-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#budget-monitor-shame-modal .shame-content {
+  position: relative !important;
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%) !important;
+  border-radius: 24px !important;
+  padding: 40px 50px !important;
+  max-width: 500px !important;
+  width: 90% !important;
+  text-align: center !important;
+  box-shadow: 
+    0 25px 80px rgba(233, 69, 96, 0.3),
+    0 0 0 1px rgba(233, 69, 96, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  animation: budget-modal-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes budget-modal-pop {
+  0% { 
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  100% { 
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+#budget-monitor-shame-modal .shame-emoji {
+  font-size: 60px !important;
+  margin-bottom: 20px !important;
+  animation: budget-emoji-float 2s ease-in-out infinite !important;
+}
+
+@keyframes budget-emoji-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+#budget-monitor-shame-modal h1 {
+  color: #e94560 !important;
+  font-family: 'Impact', 'Haettenschweiler', sans-serif !important;
+  font-size: 32px !important;
+  margin: 0 0 10px 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 30px rgba(233, 69, 96, 0.5) !important;
+}
+
+#budget-monitor-shame-modal .shame-subtitle {
+  color: #a0a0a0 !important;
+  font-family: 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 16px !important;
+  margin: 0 0 25px 0 !important;
+  font-style: italic !important;
+}
+
+#budget-monitor-shame-modal .shame-stats {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 40px !important;
+  margin: 25px 0 !important;
+  padding: 20px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+}
+
+#budget-monitor-shame-modal .stat {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#budget-monitor-shame-modal .stat-number {
+  color: #e94560 !important;
+  font-family: 'Courier New', monospace !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+}
+
+#budget-monitor-shame-modal .stat-label {
+  color: #666 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  margin-top: 5px !important;
+}
+
+#budget-monitor-shame-modal .shame-message {
+  color: #ccc !important;
+  font-family: 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin: 20px 0 30px 0 !important;
+}
+
+#budget-monitor-shame-modal .shame-buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+#budget-monitor-shame-modal .shame-btn {
+  padding: 16px 24px !important;
+  border-radius: 12px !important;
+  font-family: 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+#budget-monitor-shame-modal .shame-btn-close {
+  background: linear-gradient(135deg, #e94560, #ff6b6b) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4) !important;
+}
+
+#budget-monitor-shame-modal .shame-btn-close:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 30px rgba(233, 69, 96, 0.6) !important;
+}
+
+#budget-monitor-shame-modal .shame-btn-stay {
+  background: transparent !important;
+  color: #666 !important;
+  border: 1px solid #333 !important;
+}
+
+#budget-monitor-shame-modal .shame-btn-stay:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #888 !important;
+}
+
+#budget-monitor-shame-modal .shame-footer {
+  color: #444 !important;
+  font-family: 'Georgia', serif !important;
+  font-size: 12px !important;
+  font-style: italic !important;
+  margin: 25px 0 0 0 !important;
+}
+

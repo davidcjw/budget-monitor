@@ -1,0 +1,73 @@
+{
+  "manifest_version": 3,
+  "name": "Budget Monitor - Shopping Shame",
+  "version": "1.0.0",
+  "description": "Replaces shopping site images with disappointed faces and shames you for trying to buy things",
+  "permissions": ["activeTab", "scripting", "tabs", "storage"],
+  "host_permissions": [
+    "*://*.shopee.sg/*",
+    "*://*.amazon.sg/*",
+    "*://*.amazon.com/*",
+    "*://*.amazon.co.uk/*",
+    "*://*.ebay.com/*",
+    "*://*.walmart.com/*",
+    "*://*.target.com/*",
+    "*://*.bestbuy.com/*",
+    "*://*.etsy.com/*",
+    "*://*.aliexpress.com/*",
+    "*://*.wish.com/*",
+    "*://*.shopify.com/*",
+    "*://*.newegg.com/*",
+    "*://*.wayfair.com/*",
+    "*://*.overstock.com/*",
+    "*://*.zappos.com/*",
+    "*://*.nordstrom.com/*",
+    "*://*.macys.com/*",
+    "*://*.costco.com/*",
+    "*://*.homedepot.com/*",
+    "*://*.lowes.com/*",
+    "*://*.shein.com/*",
+    "*://*.asos.com/*",
+    "*://*.zara.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.shopee.sg/*",
+        "*://*.amazon.sg/*",
+        "*://*.amazon.com/*",
+        "*://*.amazon.co.uk/*",
+        "*://*.ebay.com/*",
+        "*://*.walmart.com/*",
+        "*://*.target.com/*",
+        "*://*.bestbuy.com/*",
+        "*://*.etsy.com/*",
+        "*://*.aliexpress.com/*",
+        "*://*.wish.com/*",
+        "*://*.shopify.com/*",
+        "*://*.newegg.com/*",
+        "*://*.wayfair.com/*",
+        "*://*.overstock.com/*",
+        "*://*.zappos.com/*",
+        "*://*.nordstrom.com/*",
+        "*://*.macys.com/*",
+        "*://*.costco.com/*",
+        "*://*.homedepot.com/*",
+        "*://*.lowes.com/*",
+        "*://*.shein.com/*",
+        "*://*.asos.com/*",
+        "*://*.zara.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+

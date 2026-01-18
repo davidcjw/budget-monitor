@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Icon Generator - Budget Monitor</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #1a1a2e;
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 { color: #e94560; }
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .icon-box {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .icon-box h3 { margin: 10px 0 15px; color: #aaa; }
+    canvas { 
+      display: block; 
+      margin: 0 auto 10px;
+      border-radius: 8px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #e94560;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    a:hover { background: #ff6b6b; }
+    .instructions {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: left;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .instructions h2 { color: #e94560; }
+    .instructions ol { line-height: 1.8; }
+    code {
+      background: rgba(0,0,0,0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💸 Budget Monitor Icon Generator</h1>
+  <p>Click each download link to save the icons to your <code>icons/</code> folder</p>
+  
+  <div class="icon-container">
+    <div class="icon-box">
+      <canvas id="icon16" width="16" height="16"></canvas>
+      <h3>16x16</h3>
+      <a id="download16" download="icon16.png">Download</a>
+    </div>
+    <div class="icon-box">
+      <canvas id="icon48" width="48" height="48"></canvas>
+      <h3>48x48</h3>
+      <a id="download48" download="icon48.png">Download</a>
+    </div>
+    <div class="icon-box">
+      <canvas id="icon128" width="128" height="128"></canvas>
+      <h3>128x128</h3>
+      <a id="download128" download="icon128.png">Download</a>
+    </div>
+  </div>
+
+  <div class="instructions">
+    <h2>📋 Instructions</h2>
+    <ol>
+      <li>Download all three icons above</li>
+      <li>Move them to the <code>icons/</code> folder in your extension directory</li>
+      <li>Update <code>manifest.json</code> to include the icons (see below)</li>
+      <li>Reload the extension in Chrome</li>
+    </ol>
+    <p>Add this to your manifest.json:</p>
+    <pre style="background: #000; padding: 15px; border-radius: 8px; overflow-x: auto;">
+"icons": {
+  "16": "icons/icon16.png",
+  "48": "icons/icon48.png",
+  "128": "icons/icon128.png"
+}</pre>
+  </div>
+
+  <script>
+    function drawIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      
+      // Background gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#e94560');
+      gradient.addColorStop(1, '#ff6b6b');
+      
+      // Rounded rectangle
+      const radius = size * 0.2;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      
+      // Dollar sign
+      ctx.fillStyle = 'white';
+      ctx.font = `bold ${size * 0.6}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('$', size / 2, size / 2);
+      
+      // Wings/motion lines for "flying money" effect
+      ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+      ctx.lineWidth = size * 0.05;
+      ctx.lineCap = 'round';
+      
+      // Left wing
+      ctx.beginPath();
+      ctx.moveTo(size * 0.15, size * 0.3);
+      ctx.lineTo(size * 0.05, size * 0.45);
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.moveTo(size * 0.15, size * 0.5);
+      ctx.lineTo(size * 0.05, size * 0.5);
+      ctx.stroke();
+      
+      return canvas;
+    }
+
+    // Generate icons
+    drawIcon('icon16', 16);
+    drawIcon('icon48', 48);
+    drawIcon('icon128', 128);
+
+    // Set download links
+    document.getElementById('download16').href = document.getElementById('icon16').toDataURL('image/png');
+    document.getElementById('download48').href = document.getElementById('icon48').toDataURL('image/png');
+    document.getElementById('download128').href = document.getElementById('icon128').toDataURL('image/png');
+  </script>
+</body>
+</html>
+
